@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night-950: #05060f;
+  --color-night-900: #0b1026;
+  --color-night-800: #131a3a;
+  --color-mid-100: #eef1fb;
+  --color-mid-300: #a6b1d9;
+  --color-rose-deep: #2f6bff;
+  --color-rose-mid: #4f8cff;
+  --color-rose-light: #7fb4ff;
+  --color-gold: #f5d47a;
+
+  --font-display: Georgia, "Times New Roman", Times, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    background-color: #05060f;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #05060f 0%, #0b1026 48%, #131a3a 100%);
+    color: var(--color-mid-100);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .app-shell {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .bg-night {
+    background:
+      radial-gradient(
+        120% 90% at 50% 8%,
+        rgba(79, 140, 255, 0.14) 0%,
+        rgba(79, 140, 255, 0) 55%
+      ),
+      linear-gradient(160deg, #05060f 0%, #0b1026 48%, #131a3a 100%);
+  }
+
+  .rose-frame {
+    width: clamp(220px, 42vw, 380px);
+    aspect-ratio: 240 / 300;
+  }
+
+  .chick-anchor {
+    width: clamp(72px, 20vw, 104px);
+    height: 7rem;
+  }
+
+  .content-safe {
+    padding-top: calc(env(safe-area-inset-top) + 2rem);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 6.5rem);
+  }
+}
+
+@media (min-width: 640px) {
+  .content-safe {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 4.5rem);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .content-safe {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 3.5rem);
+  }
+
+  .chick-anchor {
+    width: 76px;
+    height: 5.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
