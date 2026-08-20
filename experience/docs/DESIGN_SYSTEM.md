@@ -35,15 +35,15 @@ No se usan fuentes externas: legibilidad garantizada offline y cero bloqueo de r
 
 - Degradado lineal `160deg` de `#05060f` → `#0b1026` → `#131a3a`.
 - Halo radial superior azul tenue (`rgba(79,140,255,0.14)`).
-- Campo de estrellas (40, opacidad animada) + pétalos ambientales (10, caída lenta) — ambos `transform/opacity`, pausados con pestaña oculta, fuera de viewport (por composición) o reduced motion.
+- Campo de estrellas en capas (56, con deriva/scale/tintineo muy lentos y desincronizados) + pétalos ambientales (10, caída lenta) — ambos `transform/opacity`, pausados con pestaña oculta, fuera de viewport (por composición) o reduced motion.
 
 ## 4. Composición
 
 - Columna centrada `max-w-3xl`, contenido máximo `max-w-xl` para el mensaje.
-- Jerarquía: eyebrow → título → rosa → mensaje → firma → pie.
-- La rosa es el centro visual: `clamp(220px, 42vw, 380px)`, ratio `240/300`.
-- El pollito asoma en la esquina inferior izquierda: `clamp(72px, 20vw, 104px)` de ancho, nunca dominante.
-- Espacio reservado (sin CLS) para: rosa, mensajes (`min-h-20`), insignia de completado (`min-h-11`).
+- Jerarquía: eyebrow → título → ramo → mensaje → firma → pie.
+- El ramo es el centro visual: un ramo multicapa (varias flores, hojas, tallos, papel de envoltura y cinta) de `clamp(230px, 44vw, 400px)`, ratio `320/460`.
+- El pollito está de pie en la parte inferior: `clamp(76px, 20vw, 108px)` de ancho, siempre presente y nunca dominante.
+- Espacio reservado (sin CLS) para: ramo, mensajes (`min-h-20`), insignia de completado (`min-h-11`).
 
 ## 5. Movimiento
 
@@ -52,8 +52,8 @@ Categorías:
 | Categoría            | Ejemplos                                              |
 | -------------------- | ----------------------------------------------------- |
 | Entrance             | Entrada escalonada del título                          |
-| Interaction          | Bloom de la rosa, salto/parpadeo del pollito, scale al tocar descubribles |
-| Ambient              | Estrellas titilando, pétalos cayendo                   |
+| Interaction          | Bloom de la rosa central, salto/parpadeo del pollito, scale al tocar descubribles |
+| Ambient              | Estrellas en deriva/tintineo por capas, pétalos cayendo, ramo respirando (flores, hojas, papel y cinta) |
 | Transition           | Aparición de mensajes (opacity + y), insignia de completado |
 
 Reglas:

@@ -1,54 +1,111 @@
-import { motion } from 'framer-motion';
 import { useMemo } from 'react';
-
-interface StarSpec {
-  x: number;
-  y: number;
-  size: number;
-  base: number;
-  delay: number;
-  duration: number;
-}
+import type { CSSProperties } from 'react';
 
 interface StarfieldProps {
   active: boolean;
 }
 
-const STAR_COUNT = 40;
+type MotionKind = 'a' | 'b' | 'c' | 'd';
+type Layer = 'far' | 'mid' | 'near';
+
+interface StarSpec {
+  style: CSSProperties;
+  motionClass: string;
+  tierClass: string;
+}
+
+const STAR_COUNT = 56;
+
+function pickMotion(layer: Layer): MotionKind {
+  const r = Math.random();
+  if (layer === 'far') return r < 0.55 ? 'd' : r < 0.85 ? 'c' : 'a';
+  if (layer === 'mid') return r < 0.4 ? 'a' : r < 0.75 ? 'd' : 'c';
+  return r < 0.5 ? 'a' : 'b';
+}
 
 export function Starfield({ active }: StarfieldProps) {
   const stars = useMemo<StarSpec[]>(() => {
-    return Array.from({ length: STAR_COUNT }, () => ({
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: 1 + Math.random() * 2,
-      base: 0.35 + Math.random() * 0.6,
-      delay: Math.random() * 4,
-      duration: 2.5 + Math.random() * 3.5,
-    }));
+    return Array.from({ length: STAR_COUNT }, () => {
+      const roll = Math.random();
+      const layer: Layer = roll < 0.5 ? 'far' : roll < 0.82 ? 'mid' : 'near';
+
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const gold = layer !== 'far' && Math.random() < 0.16;
+
+      let size: number;
+      let tierClass: string;
+      let dur: number;
+      let dx: number;
+      let dy: number;
+
+      if (layer === 'far') {
+        size = 1 + Math.random() * 0.6;
+        tierClass = Math.random() < 0.5 ? 'star--lo' : 'star--md';
+        dur = 20 + Math.random() * 14;
+        dx = Math.random() * 4 - 2;
+        dy = Math.random() * 4 - 2;
+      } else if (layer === 'mid') {
+        size = 1.4 + Math.random() * 0.8;
+        tierClass = Math.random() < 0.3 ? 'star--lo' : 'star--md';
+        dur = 14 + Math.random() * 8;
+        dx = Math.random() * 6 - 3;
+        dy = Math.random() * 6 - 3;
+      } else {
+        size = 2.2 + Math.random() * 1.2;
+        tierClass = 'star--hi';
+        dur = 9 + Math.random() * 7;
+        dx = Math.random() * 8 - 4;
+        dy = Math.random() * 8 - 4;
+      }
+
+      const motion = pickMotion(layer);
+      const delay = Math.random() * 8;
+
+      const style = {
+        left: `${x}%`,
+        top: `${y}%`,
+        width: `${size}px`,
+        height: `${size}px`,
+        background: gold ? '#f5d47a' : '#eef1fb',
+        animationDuration: `${dur}s`,
+        animationDelay: `${delay}s`,
+      } as Record<string, string | number> & CSSProperties;
+
+      if (motion === 'a' || motion === 'c') {
+        style['--dx'] = `${dx}px`;
+        style['--dy'] = `${dy}px`;
+        style['--dx2'] = `${-dx * 0.6}px`;
+        style['--dy2'] = `${-dy * 0.4}px`;
+      }
+      if (motion === 'b') {
+        style['--s1'] = 1.5;
+        style['--s2'] = 0.72;
+      }
+      if (layer === 'near') {
+        style.boxShadow = gold
+          ? '0 0 7px 1px rgba(245,212,122,0.22)'
+          : '0 0 7px 1px rgba(238,241,251,0.2)';
+      }
+
+      return {
+        style,
+        motionClass: `star--${motion}`,
+        tierClass,
+      };
+    });
   }, []);
 
   return (
-    <div className="absolute inset-0" aria-hidden="true">
+    <div
+      className={active ? 'starfield' : 'starfield starfield--paused'}
+      aria-hidden="true"
+    >
       {stars.map((star, index) => (
-        <motion.div
+        <span
           key={index}
-          className="absolute rounded-full bg-mid-100"
-          style={{
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            width: star.size,
-            height: star.size,
-          }}
-          initial={{ opacity: star.base }}
-          animate={
-            active ? { opacity: [star.base, star.base * 0.2, star.base] } : { opacity: star.base }
-          }
-          transition={
-            active
-              ? { duration: star.duration, repeat: Infinity, delay: star.delay, ease: 'easeInOut' }
-              : { duration: 0 }
-          }
+          className={`star ${star.motionClass} ${star.tierClass}`}
+          style={star.style}
         />
       ))}
     </div>

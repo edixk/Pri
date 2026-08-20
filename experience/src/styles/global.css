@@ -62,35 +62,34 @@
   }
 
   .rose-frame {
-    width: clamp(220px, 42vw, 380px);
-    aspect-ratio: 240 / 300;
+    width: clamp(230px, 44vw, 400px);
+    aspect-ratio: 320 / 460;
   }
 
   .chick-anchor {
-    width: clamp(72px, 20vw, 104px);
-    height: 7rem;
+    width: clamp(76px, 20vw, 108px);
+    height: auto;
   }
 
   .content-safe {
     padding-top: calc(env(safe-area-inset-top) + 2rem);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 6.5rem);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 7.5rem);
   }
 }
 
 @media (min-width: 640px) {
   .content-safe {
-    padding-bottom: calc(env(safe-area-inset-bottom) + 4.5rem);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 5.5rem);
   }
 }
 
 @media (orientation: landscape) and (max-height: 520px) {
   .content-safe {
-    padding-bottom: calc(env(safe-area-inset-bottom) + 3.5rem);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 4rem);
   }
 
   .chick-anchor {
-    width: 76px;
-    height: 5.25rem;
+    width: 68px;
   }
 }
 
@@ -102,5 +101,208 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@keyframes star-a {
+  0%,
+  100% {
+    transform: translate(0px, 0px);
+    opacity: var(--o);
+  }
+  33% {
+    transform: translate(var(--dx, 2px), var(--dy, -2px));
+    opacity: var(--o2, 0.15);
+  }
+  66% {
+    transform: translate(var(--dx2, -1px), var(--dy2, 1px));
+    opacity: var(--o);
+  }
+}
+
+@keyframes star-b {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: var(--o);
+  }
+  40% {
+    transform: scale(var(--s1, 1.4));
+    opacity: var(--o2, 0.15);
+  }
+  70% {
+    transform: scale(var(--s2, 0.75));
+    opacity: var(--o);
+  }
+}
+
+@keyframes star-c {
+  0%,
+  100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(var(--dx, 2px), var(--dy, -2px));
+  }
+}
+
+@keyframes star-d {
+  0%,
+  100% {
+    opacity: var(--o);
+  }
+  50% {
+    opacity: var(--o2, 0.12);
+  }
+}
+
+@keyframes bq-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03) rotate(0.5deg);
+  }
+}
+
+@keyframes bq-breathe-sm {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+
+@keyframes bq-leaf {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes bq-paper {
+  0%,
+  100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0.5px, -0.5px);
+  }
+}
+
+@keyframes bq-ribbon {
+  0%,
+  100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-0.4px, 0.3px);
+  }
+}
+
+@layer components {
+  .starfield {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .starfield--paused .star {
+    animation-play-state: paused;
+  }
+
+  .star {
+    position: absolute;
+    border-radius: 9999px;
+    opacity: var(--o, 0.5);
+    animation-duration: 16s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    will-change: transform, opacity;
+  }
+
+  .star--a {
+    animation-name: star-a;
+  }
+  .star--b {
+    animation-name: star-b;
+  }
+  .star--c {
+    animation-name: star-c;
+  }
+  .star--d {
+    animation-name: star-d;
+  }
+
+  .star--lo {
+    --o: 0.28;
+    --o2: 0.08;
+  }
+  .star--md {
+    --o: 0.5;
+    --o2: 0.14;
+  }
+  .star--hi {
+    --o: 0.78;
+    --o2: 0.2;
+  }
+
+  .bq-breathe {
+    animation-name: bq-breathe;
+    animation-duration: 8s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+
+  .bq-breathe-sm {
+    animation-name: bq-breathe-sm;
+    animation-duration: 7s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+
+  .bq-leaf {
+    animation-name: bq-leaf;
+    animation-duration: 6s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-box: fill-box;
+    transform-origin: 0% 100%;
+    will-change: transform;
+  }
+
+  .bq-paper {
+    animation-name: bq-paper;
+    animation-duration: 11s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+
+  .bq-ribbon {
+    animation-name: bq-ribbon;
+    animation-duration: 7s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: transform;
   }
 }

@@ -9,7 +9,7 @@ export const interactionMap: readonly InteractionDefinition[] = [
   {
     id: 'chick',
     label: 'El pollito',
-    ariaLabel: 'Un pollito que se asoma solo por ti. Tócalo.',
+    ariaLabel: 'Un pollito que te espera de pie en el jardín. Tócalo.',
   },
   {
     id: 'discovery-petal',
