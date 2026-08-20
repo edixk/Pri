@@ -4,6 +4,7 @@ import { Introduction } from '../../features/introduction/Introduction';
 import { InteractiveChick } from '../interactive/InteractiveChick';
 import { InteractiveRose } from '../interactive/InteractiveRose';
 import { AmbientBackground } from './AmbientBackground';
+import firmaUrl from '../../../firma.svg';
 
 export function AppShell() {
   return (
@@ -29,7 +30,6 @@ export function AppShell() {
                 {paragraph}
               </p>
             ))}
-            <p className="mt-5 font-display italic text-mid-300">{content.message.signature}</p>
           </article>
         </main>
 
@@ -37,6 +37,13 @@ export function AppShell() {
           <p className="font-display italic text-sm leading-relaxed text-mid-300">
             {content.footer.text}
           </p>
+          <img
+            src={firmaUrl}
+            alt=""
+            aria-hidden="true"
+            className="mx-auto mt-7 h-auto w-40 max-w-[70vw] select-none sm:w-48"
+          />
+          <p className="mt-7 font-display italic text-mid-300">{content.message.signature}</p>
         </footer>
       </div>
 
