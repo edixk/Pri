@@ -6,7 +6,6 @@ import { content } from './content';
 describe('content', () => {
   it('define todas las piezas del mensaje sin cadenas vacías', () => {
     expect(content.intro.eyebrow.trim().length).toBeGreaterThan(0);
-    expect(content.intro.title.trim().length).toBeGreaterThan(0);
     expect(content.message.paragraphs.length).toBeGreaterThanOrEqual(3);
     for (const paragraph of content.message.paragraphs) {
       expect(paragraph.trim().length).toBeGreaterThan(0);

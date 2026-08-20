@@ -284,7 +284,7 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     transform-box: fill-box;
-    transform-origin: 0% 100%;
+    transform-origin: 50% 100%;
     will-change: transform;
   }
 

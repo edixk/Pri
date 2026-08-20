@@ -76,8 +76,8 @@ const BUD_OUTER = [-40, -23, -8, 8, 23, 40];
 const BUD_INNER = [-28, -9, 9, 28];
 
 const LEAF =
-  'M0 0 C 7 -20, 26 -38, 50 -44 C 43 -21, 29 -4, 0 0 Z';
-const LEAF_VEIN = 'M2 -2 C 16 -16, 32 -30, 47 -41';
+  'M0 0 C 20 -8, 34 -24, 36 -44 C 36 -54, 24 -60, 0 -60 C -24 -60, -36 -54, -36 -44 C -34 -24, -20 -8, 0 0 Z';
+const LEAF_VEIN = 'M0 -2 C 0 -20, 0 -40, 0 -57';
 
 interface FlowerProps {
   cx: number;
@@ -200,13 +200,12 @@ interface LeafProps {
   y: number;
   rotate: number;
   scale: number;
-  flip?: boolean;
   fill: string;
   dur: number;
   delay: number;
 }
 
-function Leaf({ x, y, rotate, scale, flip = false, fill, dur, delay }: LeafProps) {
+function Leaf({ x, y, rotate, scale, fill, dur, delay }: LeafProps) {
   const swayStyle: CSSProperties = {
     animationDuration: `${dur}s`,
     animationDelay: `${delay}s`,
@@ -214,10 +213,10 @@ function Leaf({ x, y, rotate, scale, flip = false, fill, dur, delay }: LeafProps
 
   return (
     <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
-      <g transform={`scale(${flip ? -1 : 1} 1) scale(${scale})`}>
+      <g transform={`scale(${scale})`}>
         <g className="bq-leaf" style={swayStyle}>
           <path d={LEAF} fill={fill} />
-          <path d={LEAF_VEIN} stroke="#2c5a49" strokeWidth="1.2" fill="none" opacity="0.5" />
+          <path d={LEAF_VEIN} stroke="#3a7560" strokeWidth="1.2" fill="none" opacity="0.5" />
         </g>
       </g>
     </g>
@@ -252,17 +251,9 @@ export function Rose({ state }: RoseProps) {
           <stop offset="0%" stopColor="#31526b" />
           <stop offset="100%" stopColor="#1c2f42" />
         </linearGradient>
-        <linearGradient id={g('paper-back')} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#18214a" />
-          <stop offset="100%" stopColor="#0e1430" />
-        </linearGradient>
-        <linearGradient id={g('paper-left')} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#202a58" />
-          <stop offset="100%" stopColor="#161d3e" />
-        </linearGradient>
-        <linearGradient id={g('paper-right')} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#24305f" />
-          <stop offset="100%" stopColor="#182047" />
+        <linearGradient id={g('paper')} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f9f1e0" />
+          <stop offset="100%" stopColor="#e3cfa6" />
         </linearGradient>
         <linearGradient id={g('ribbon')} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#ffdf8e" />
@@ -270,7 +261,7 @@ export function Rose({ state }: RoseProps) {
         </linearGradient>
       </defs>
 
-      <ellipse cx="160" cy="452" rx="88" ry="9" fill="#000000" opacity="0.22" />
+      <ellipse cx="160" cy="452" rx="88" ry="9" fill="#000000" opacity="0.2" />
 
       <g stroke={`url(#${g('stem')})`} fill="none" strokeLinecap="round">
         {STEMS.map((d, index) => (
@@ -278,66 +269,38 @@ export function Rose({ state }: RoseProps) {
         ))}
       </g>
 
-      <Leaf x={200} y={176} rotate={-40} scale={0.62} fill="#183329" dur={6.4} delay={1.2} />
-      <Leaf x={122} y={174} rotate={132} scale={0.6} fill="#183329" dur={5.8} delay={2.6} />
-      <Leaf x={172} y={236} rotate={-16} scale={1} fill="#1f4438" dur={5.2} delay={0.4} />
-      <Leaf x={146} y={242} rotate={166} scale={0.92} fill="#183329" dur={6.6} delay={3.1} />
-      <Leaf x={196} y={212} rotate={-30} scale={0.78} fill="#1f4438" dur={5.6} delay={1.8} />
-      <Leaf x={122} y={216} rotate={150} scale={0.76} fill="#183329" dur={6.2} delay={4.2} />
-      <Leaf x={184} y={272} rotate={-6} scale={0.88} fill="#1f4438" dur={7.0} delay={0.9} />
-      <Leaf x={134} y={278} rotate={176} scale={0.84} fill="#183329" dur={6.8} delay={2.2} />
+      <Leaf x={118} y={290} rotate={-42} scale={0.9} fill="#1e4236" dur={5.4} delay={0.6} />
+      <Leaf x={202} y={290} rotate={42} scale={0.9} fill="#2a5946" dur={5.8} delay={1.8} />
+      <Leaf x={126} y={266} rotate={-30} scale={0.7} fill="#1e4236" dur={6.2} delay={2.6} />
+      <Leaf x={194} y={266} rotate={30} scale={0.7} fill="#2a5946" dur={5.6} delay={3.4} />
+      <Leaf x={155} y={300} rotate={-58} scale={0.6} fill="#1e4236" dur={6.6} delay={1.2} />
+      <Leaf x={165} y={300} rotate={58} scale={0.6} fill="#2a5946" dur={6.0} delay={4.2} />
 
       <g
         className="bq-paper"
         style={{ animationDuration: '11s', animationDelay: '0.6s' } as CSSProperties}
       >
         <path
-          d="M160 420 C 120 400, 84 362, 74 318 C 122 306, 198 306, 246 318 C 238 362, 202 402, 160 420 Z"
-          fill={`url(#${g('paper-back')})`}
+          d="M160 418 C 116 396, 82 358, 76 318 C 122 307, 198 307, 244 318 C 238 358, 202 396, 160 418 Z"
+          fill={`url(#${g('paper')})`}
         />
         <path
-          d="M160 418 C 128 402, 96 368, 90 326 C 130 318, 168 316, 182 320 C 172 354, 164 388, 160 418 Z"
-          fill={`url(#${g('paper-left')})`}
+          d="M76 318 C 122 307, 198 307, 244 318 L 238 334 C 198 323, 122 323, 82 334 Z"
+          fill="#e9d9b8"
         />
         <path
-          d="M160 418 C 192 402, 224 368, 230 326 C 190 318, 152 316, 138 320 C 148 354, 156 388, 160 418 Z"
-          fill={`url(#${g('paper-right')})`}
-        />
-        <path
-          d="M152 324 C 122 330, 96 342, 86 356 C 102 344, 130 330, 158 322 Z"
-          fill="#232c5c"
-        />
-        <path
-          d="M168 324 C 198 330, 224 342, 234 356 C 218 344, 190 330, 162 322 Z"
-          fill="#283366"
-        />
-        <path
-          d="M150 328 C 142 360, 136 386, 132 406"
-          stroke="#2e3a72"
-          strokeWidth="1.2"
+          d="M132 336 C 128 362, 125 386, 123 404"
+          stroke="#c8b186"
+          strokeWidth="1.1"
           fill="none"
-          opacity="0.45"
+          opacity="0.4"
         />
         <path
-          d="M170 328 C 178 360, 184 386, 188 406"
-          stroke="#2e3a72"
-          strokeWidth="1.2"
+          d="M188 336 C 192 362, 195 386, 197 404"
+          stroke="#c8b186"
+          strokeWidth="1.1"
           fill="none"
-          opacity="0.45"
-        />
-        <path
-          d="M160 324 C 157 356, 154 386, 152 408"
-          stroke="#2e3a72"
-          strokeWidth="1"
-          fill="none"
-          opacity="0.35"
-        />
-        <path
-          d="M160 324 C 163 356, 166 386, 168 408"
-          stroke="#2e3a72"
-          strokeWidth="1"
-          fill="none"
-          opacity="0.35"
+          opacity="0.4"
         />
       </g>
 
@@ -504,9 +467,6 @@ export function Rose({ state }: RoseProps) {
         dur={8.6}
         delay={1.9}
       />
-
-      <Leaf x={150} y={248} rotate={24} scale={0.62} fill="#1f4438" dur={5.4} delay={3.8} />
-      <Leaf x={176} y={250} rotate={-122} scale={0.58} fill="#1f4438" dur={6.0} delay={1.1} />
     </svg>
   );
 }

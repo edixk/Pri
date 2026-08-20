@@ -17,14 +17,16 @@ export function Introduction() {
       <p className="text-xs font-medium uppercase tracking-[0.28em] text-gold/90 sm:text-sm">
         {content.intro.eyebrow}
       </p>
-      <motion.h1
-        initial={{ opacity: 0, y: 10 }}
-        animate={started ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-        transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-        className="mt-3 font-display text-3xl italic text-mid-100 sm:text-5xl"
-      >
-        {content.intro.title}
-      </motion.h1>
+      {content.intro.title ? (
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={started ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
+          className="mt-3 font-display text-3xl italic text-mid-100 sm:text-5xl"
+        >
+          {content.intro.title}
+        </motion.h1>
+      ) : null}
     </motion.div>
   );
 }
