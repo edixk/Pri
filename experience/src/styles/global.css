@@ -67,7 +67,7 @@
   }
 
   .chick-anchor {
-    width: clamp(76px, 20vw, 108px);
+    width: clamp(130px, 28vw, 200px);
     height: auto;
   }
 
@@ -89,7 +89,7 @@
   }
 
   .chick-anchor {
-    width: 68px;
+    width: 92px;
   }
 }
 
