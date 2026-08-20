@@ -1,39 +1,40 @@
 export const content = {
   meta: {
-    title: 'Un pequeño mundo para ti',
+    title: 'Única e idónea',
     description:
-      'Un jardín de medianoche donde una luz lleva tu nombre. Un pequeño mundo hecho para ti.',
+      '',
   },
   intro: {
     eyebrow: 'Para Pri, la que enciende luces sin darse cuenta',
-    title: 'Un pequeño mundo para ti',
+    title: '',
   },
   message: {
     paragraphs: [
-      'Pri, construí este jardín en una noche que no se apaga. Quería que existiera un lugar donde pensar en ti tuviera forma, y como las formas se me dan mejor con las manos que con las palabras, lo hice así.',
-      'No tienes que tocar nada: todo lo importante ya está dicho. Pero si te roza una flor, un pétalo o una estrella, este rincón te responde como respondería yo si estuviera un poco más cerca.',
-      'Desde que llegaste, mis silencios dejaron de ser vacíos. No sé nombrar del todo lo que haces en mí, y tal vez por eso te lo cuento así: en una noche, con una rosa azul y un pollito que no tiene miedo de ti.',
+      'Gracias pri por ser la mujer que me alegra cada día, la mujer con la que yo quiero estar el resto de mis días. Amarte como Cristo amó a su Iglesia es mi objetivo contigo, servirle y agradarle, todo eso que siempre hablamos los dos.',
+      'He visto reflejado en ti el amor de Dios, y no solo su amor, he visto como tu amas con todo el corazón a Él, y eso me enamora cada día. Cada día veo como te esfuerzas y como le amas.',
+      'La definición de amor es Cristo, Él te amó muchisimo más de lo que yo podría amarte, y Él me amó a mi tanto, en una cantidad tan incomprensible que me dió el gran privilegio y honor de poder amarte a ti, quizás no pueda hacerlo tan perfecto, y menos siendo así de imperfecto.',
+      'Cada rosa azul, cada petalo, cada estrella, cada pollito, y muchisimas más cosas me recuerdan a ti mi Pri. ',
+      'Gracias por todo, gracias por todo lo que hemos pasado, y gracias por todo lo que nos queda. Mi Princesa, mi vida, mi amada.',
     ],
-    signature: '— Alguien que te deja la luz encendida',
+    signature: '— Alguien que te ama mucho',
   },
   rose: {
     reveal:
-      'Esta rosa es azul como las noches en que pienso en ti. La riego con todo lo que no sé decirte, mi Luz, y aun así florece.',
+      'No sé si parece muy como una rosa esto, pero cada vez que la veo pienso en ti',
   },
   chick: {
-    notice: 'Psss… Pri. Aquí estoy. Te estaba esperando.',
-    reveal:
-      'No hacía falta que me encontraras. Pero ya que estás, me quedo un rato, mi Pris. Los buenos ratos se quedan.',
+    notice: 'Pri',
+    reveal: ' Mi pollita preciosa',
   },
   discoveries: {
-    petal: 'Cada pétalo que cae es un pensamiento tuyo que dejé flotando, por si algún día lo quisieras.',
-    star: 'Elegí una estrella y le puse tu nombre entero: Priscila Luzardo. Por si el cielo necesita saber quién lo ilumina.',
+    petal: 'Cada petalo es tan delicado como tu, y cada uno de ellos es tan suave como tu piel',
+    star: 'Esta estrella me recuerda a ti, Priscila Luzardo. Tu sonrisa ilumina mis días como esta estrella brilla en la noche.',
   },
   completion: {
     badge: 'Jardín recorrido',
     text: 'Lo miraste todo y lo tocaste todo. Este jardín, mi cielo, es tan tuyo como el lugar que ocupas en mí.',
   },
   footer: {
-    text: 'Hecho para ti, Pri, en una noche que no se apaga.',
+    text: 'Hecho para mi Pri :3 - Con mucho amorcito',
   },
 } as const;
