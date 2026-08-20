@@ -44,13 +44,13 @@ Estados: `initial → peek → noticed → interaction → reaction` (según `sr
 
 | Evento                     | Respuesta                                   |
 | -------------------------- | ------------------------------------------- |
-| Entra en escena a los 2.6 s| `peek`: aparece de pie con entrada suave    |
-| Tap 1                      | `noticed`: salto/parpadeo + aviso "Estoy aquí" |
+| Presente desde el inicio| `peek`: de pie, estable, esquina inferior derecha    |
+| Tap 1                      | `noticed`: micro-pulso + aviso "Estoy aquí" |
 | Tap 2                      | `interaction`: nueva reacción               |
-| Tap 3 (umbral)             | `reaction`: se asoma del todo + mensaje     |
-| Taps posteriores           | Reacciones cíclicas (jump/blink/tilt/bounce) |
+| Tap 3 (umbral)             | `reaction`: micro-pulso + mensaje     |
+| Taps posteriores           | Micro-pulsos cíclicos discretos |
 
-Zona visual estable: de pie en la parte inferior, permanentemente presente, nunca se desplaza por la pantalla. Reacciones cíclicas sin repetir spam de mensajes.
+Zona visual estable: esquina inferior derecha, permanentemente presente, nunca se desplaza por la pantalla. Micro-pulsos sin repetir spam de mensajes.
 
 ### 3.3 Elementos descubribles — `discovery-petal` / `discovery-star`
 

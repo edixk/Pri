@@ -5,19 +5,13 @@ import { createInteractionValue, interactionWrapper } from '../../test/harness';
 import { useChick } from './ChickFeature';
 
 describe('useChick', () => {
-  it('asoma, avisa al primer toque y revela al tercero', () => {
-    vi.useFakeTimers();
+  it('avisa al primer toque y revela al tercero', () => {
     const emit = vi.fn();
     const resolve = vi.fn();
     const wrapper = interactionWrapper(
       createInteractionValue({ isResolved: () => false, emit, resolve }),
     );
     const { result } = renderHook(() => useChick(), { wrapper });
-
-    act(() => {
-      vi.advanceTimersByTime(2600);
-    });
-    expect(result.current.state).toBe('peek');
 
     act(() => result.current.handleTap());
     expect(result.current.state).toBe('noticed');

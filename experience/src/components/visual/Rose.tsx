@@ -225,14 +225,14 @@ function Leaf({ x, y, rotate, scale, flip = false, fill, dur, delay }: LeafProps
 }
 
 const STEMS: string[] = [
-  'M160 318 C 160 262, 160 190, 160 126',
-  'M160 318 C 148 282, 130 210, 118 150',
-  'M160 318 C 172 282, 192 210, 204 148',
-  'M159 318 C 142 296, 106 244, 96 200',
-  'M161 318 C 180 296, 216 244, 226 198',
-  'M160 318 C 159 282, 158 250, 158 228',
-  'M158 318 C 132 302, 92 278, 76 252',
-  'M162 318 C 190 302, 232 278, 248 248',
+  'M160 420 C 160 330, 160 220, 160 126',
+  'M160 420 C 153 350, 133 255, 118 150',
+  'M160 420 C 167 350, 189 255, 204 148',
+  'M160 420 C 147 370, 111 285, 96 200',
+  'M160 420 C 173 370, 211 285, 226 198',
+  'M160 420 C 159 360, 158 295, 158 228',
+  'M160 420 C 137 390, 97 325, 76 252',
+  'M160 420 C 183 390, 223 325, 248 248',
 ];
 
 export function Rose({ state }: RoseProps) {
@@ -253,16 +253,16 @@ export function Rose({ state }: RoseProps) {
           <stop offset="100%" stopColor="#1c2f42" />
         </linearGradient>
         <linearGradient id={g('paper-back')} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0e1430" />
-          <stop offset="100%" stopColor="#18214a" />
+          <stop offset="0%" stopColor="#18214a" />
+          <stop offset="100%" stopColor="#0e1430" />
         </linearGradient>
         <linearGradient id={g('paper-left')} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#161d3e" />
-          <stop offset="100%" stopColor="#202a58" />
+          <stop offset="0%" stopColor="#202a58" />
+          <stop offset="100%" stopColor="#161d3e" />
         </linearGradient>
         <linearGradient id={g('paper-right')} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#182047" />
-          <stop offset="100%" stopColor="#24305f" />
+          <stop offset="0%" stopColor="#24305f" />
+          <stop offset="100%" stopColor="#182047" />
         </linearGradient>
         <linearGradient id={g('ribbon')} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#ffdf8e" />
@@ -292,48 +292,48 @@ export function Rose({ state }: RoseProps) {
         style={{ animationDuration: '11s', animationDelay: '0.6s' } as CSSProperties}
       >
         <path
-          d="M160 314 C 104 330, 64 372, 52 444 C 108 462, 216 462, 270 444 C 254 370, 214 330, 162 314 Z"
+          d="M160 420 C 120 400, 84 362, 74 318 C 122 306, 198 306, 246 318 C 238 362, 202 402, 160 420 Z"
           fill={`url(#${g('paper-back')})`}
         />
         <path
-          d="M160 318 C 122 340, 86 386, 72 448 C 128 462, 204 460, 220 456 C 200 422, 180 372, 162 318 Z"
+          d="M160 418 C 128 402, 96 368, 90 326 C 130 318, 168 316, 182 320 C 172 354, 164 388, 160 418 Z"
           fill={`url(#${g('paper-left')})`}
         />
         <path
-          d="M162 318 C 202 340, 238 386, 252 448 C 196 462, 122 460, 106 456 C 128 422, 146 372, 162 318 Z"
+          d="M160 418 C 192 402, 224 368, 230 326 C 190 318, 152 316, 138 320 C 148 354, 156 388, 160 418 Z"
           fill={`url(#${g('paper-right')})`}
         />
         <path
-          d="M150 316 C 120 322, 94 340, 82 356 C 100 342, 130 328, 160 322 Z"
+          d="M152 324 C 122 330, 96 342, 86 356 C 102 344, 130 330, 158 322 Z"
           fill="#232c5c"
         />
         <path
-          d="M172 316 C 202 322, 228 340, 240 356 C 222 342, 192 328, 162 322 Z"
+          d="M168 324 C 198 330, 224 342, 234 356 C 218 344, 190 330, 162 322 Z"
           fill="#283366"
         />
         <path
-          d="M150 324 C 142 368, 134 406, 130 446"
+          d="M150 328 C 142 360, 136 386, 132 406"
           stroke="#2e3a72"
           strokeWidth="1.2"
           fill="none"
           opacity="0.45"
         />
         <path
-          d="M172 324 C 180 368, 188 406, 192 446"
+          d="M170 328 C 178 360, 184 386, 188 406"
           stroke="#2e3a72"
           strokeWidth="1.2"
           fill="none"
           opacity="0.45"
         />
         <path
-          d="M160 322 C 156 360, 150 392, 144 430"
+          d="M160 324 C 157 356, 154 386, 152 408"
           stroke="#2e3a72"
           strokeWidth="1"
           fill="none"
           opacity="0.35"
         />
         <path
-          d="M160 322 C 166 360, 172 392, 178 430"
+          d="M160 324 C 163 356, 166 386, 168 408"
           stroke="#2e3a72"
           strokeWidth="1"
           fill="none"
@@ -346,43 +346,43 @@ export function Rose({ state }: RoseProps) {
         style={{ animationDuration: '7s', animationDelay: '1.4s' } as CSSProperties}
       >
         <path
-          d="M150 312 C 112 290, 90 324, 128 334 C 144 338, 158 326, 150 312 Z"
+          d="M152 416 C 116 394, 92 426, 128 436 C 143 440, 158 428, 152 416 Z"
           fill={`url(#${g('ribbon')})`}
         />
         <path
-          d="M172 312 C 210 290, 232 324, 194 334 C 178 338, 164 326, 172 312 Z"
+          d="M168 416 C 204 394, 228 426, 192 436 C 177 440, 162 428, 168 416 Z"
           fill={`url(#${g('ribbon')})`}
         />
         <path
-          d="M140 316 C 122 312, 112 322, 128 328"
+          d="M142 422 C 124 418, 114 426, 128 430"
           stroke="#c9a64f"
           strokeWidth="1.4"
           fill="none"
           opacity="0.6"
         />
         <path
-          d="M182 316 C 200 312, 210 322, 194 328"
+          d="M178 422 C 196 418, 206 426, 192 430"
           stroke="#c9a64f"
           strokeWidth="1.4"
           fill="none"
           opacity="0.6"
         />
         <path
-          d="M150 324 C 140 352, 128 380, 134 408"
+          d="M150 426 C 142 440, 136 448, 140 454"
           stroke="#f5d47a"
           strokeWidth="7"
           strokeLinecap="round"
           fill="none"
         />
         <path
-          d="M172 324 C 182 352, 194 380, 188 408"
+          d="M170 426 C 178 440, 184 448, 180 454"
           stroke="#f5d47a"
           strokeWidth="7"
           strokeLinecap="round"
           fill="none"
         />
         <path
-          d="M150 324 C 140 352, 128 380, 134 408"
+          d="M150 426 C 142 440, 136 448, 140 454"
           stroke="#ffe9a6"
           strokeWidth="2.4"
           strokeLinecap="round"
@@ -390,16 +390,16 @@ export function Rose({ state }: RoseProps) {
           opacity="0.6"
         />
         <path
-          d="M172 324 C 182 352, 194 380, 188 408"
+          d="M170 426 C 178 440, 184 448, 180 454"
           stroke="#ffe9a6"
           strokeWidth="2.4"
           strokeLinecap="round"
           fill="none"
           opacity="0.6"
         />
-        <ellipse cx="160" cy="318" rx="17" ry="11" fill={`url(#${g('ribbon')})`} />
+        <ellipse cx="160" cy="420" rx="16" ry="10" fill={`url(#${g('ribbon')})`} />
         <path
-          d="M150 318 Q 160 326 170 318"
+          d="M150 420 Q 160 428 170 420"
           stroke="#c9a64f"
           strokeWidth="1.6"
           fill="none"

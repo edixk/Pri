@@ -43,20 +43,20 @@ export function Starfield({ active }: StarfieldProps) {
         size = 1 + Math.random() * 0.6;
         tierClass = Math.random() < 0.5 ? 'star--lo' : 'star--md';
         dur = 20 + Math.random() * 14;
-        dx = Math.random() * 4 - 2;
-        dy = Math.random() * 4 - 2;
+        dx = Math.random() * 5 - 2.5;
+        dy = Math.random() * 5 - 2.5;
       } else if (layer === 'mid') {
         size = 1.4 + Math.random() * 0.8;
         tierClass = Math.random() < 0.3 ? 'star--lo' : 'star--md';
         dur = 14 + Math.random() * 8;
-        dx = Math.random() * 6 - 3;
-        dy = Math.random() * 6 - 3;
+        dx = Math.random() * 7 - 3.5;
+        dy = Math.random() * 7 - 3.5;
       } else {
         size = 2.2 + Math.random() * 1.2;
         tierClass = 'star--hi';
         dur = 9 + Math.random() * 7;
-        dx = Math.random() * 8 - 4;
-        dy = Math.random() * 8 - 4;
+        dx = Math.random() * 9 - 4.5;
+        dy = Math.random() * 9 - 4.5;
       }
 
       const motion = pickMotion(layer);

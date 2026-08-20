@@ -73,7 +73,7 @@ Ver `docs/INTERACTION_SPEC.md`.
 | Decisión                                   | Motivo                                                        |
 | ------------------------------------------ | ------------------------------------------------------------- |
 | Sin router ni code splitting               | Una pantalla; fragmentar no aporta.                            |
-| SVGs inline (rosa, pollito, glyphs)        | Cero requests de imágenes, escalado perfecto.                  |
+| SVG inline (ramo, glyphs); pollito = asset Pollito.svg        | Ilustración escalable; el pollito definitivo se sirve como asset.                  |
 | Sin fuentes externas                       | Rendimiento, offline, sin bloqueo de renderizado.              |
 | `min-h-dvh` + `100vh` de fallback          | Compatibilidad con viewports dinámicos de iOS.                 |
 | `overflow-x-clip` en el shell              | Evita overflow horizontal sin ocultar contenido relevante.     |

@@ -6,7 +6,6 @@ export const interactionConfig = {
   },
   chick: {
     tapsToReveal: 3,
-    appearDelayMs: 2600,
   },
   discovery: {
     cooldownMs: 2600,

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { content } from '../../data/content';
 import { interactionConfig } from '../../data/interaction.config';
@@ -23,16 +23,6 @@ export function useChick(): ChickFeature {
   const [state, setState] = useState<ChickState>('initial');
   const [reaction, setReaction] = useState<ChickReaction>('jump');
   const [tapCount, setTapCount] = useState(0);
-  const appearTimer = useRef<number | null>(null);
-
-  useEffect(() => {
-    appearTimer.current = window.setTimeout(() => {
-      setState((prev) => (prev === 'initial' ? 'peek' : prev));
-    }, interactionConfig.chick.appearDelayMs);
-    return () => {
-      if (appearTimer.current !== null) window.clearTimeout(appearTimer.current);
-    };
-  }, []);
 
   const handleTap = useCallback(() => {
     haptic(interactionConfig.haptics.light);
